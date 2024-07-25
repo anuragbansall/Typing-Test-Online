@@ -8,15 +8,19 @@ const keyPressCaption = document.querySelector('#key-press-caption');
 let isTypingTestOver = false;
 let isTypingTestStart = false;
 let intervalId;
-let wpmCount = 0
+let wpmCount = 0;
+let correctCharCount = 0;
+let incorrectCharCount = 0;
+// let accuracy = 0
 
 function typingTestStart() {
-    if (isTypingTestStart) {return};
+    if (isTypingTestStart) { return };
 
     let cursor = 0;
     let randomIdx = Math.floor(Math.random() * paragraphsArray.length);
     let randomTextGenerate = paragraphsArray[randomIdx];
-    let randomText = randomTextGenerate;
+    // let randomText = randomTextGenerate;
+    let randomText = 'hello world';
 
     let startTimeMinute = 0;
     let startTimeSecond = 0;
@@ -49,6 +53,9 @@ function typingTestStart() {
         let timeInMinutes = currentSeconds / 60;
         wpmCount = Math.round(wordTypedCount / timeInMinutes);
         userWpm.innerHTML = `${wpmCount} wpm`;
+
+        // accuracy = ((correctCharCount / (correctCharCount + incorrectCharCount)) * 100).toFixed(2);
+        // console.log(accuracy);
     }, 1000);
 
     window.addEventListener('keydown', function (e) {
@@ -57,6 +64,7 @@ function typingTestStart() {
             if (cursor < randomTextLength) {
                 if (userKeyPress === randomTextAllChars[cursor].innerHTML.toLowerCase()) {
                     randomTextAllChars[cursor].style.color = 'green';
+                    correctCharCount++;
                     cursor++;
                     if (userKeyPress !== ' ') {
                         userWordInput.innerHTML += userKeyPress;
@@ -66,6 +74,7 @@ function typingTestStart() {
                     }
                 } else {
                     randomTextAllChars[cursor].style.color = 'crimson';
+                    incorrectCharCount++;
                 }
             }
             if (cursor === randomTextLength) {
@@ -92,12 +101,15 @@ userTestToggleBtn.addEventListener('click', function () {
 });
 
 function endTypingTest() {
-    let finalWpmCount = wpmCount
+    let finalWpmCount = wpmCount;
+    let accuracy = Math.floor((correctCharCount / (correctCharCount + incorrectCharCount)) * 100);
+    console.log(accuracy);
     document.querySelector('#typingtest-container').innerHTML = '';
-    document.querySelector('#typingtest-result #wpm-result').innerHTML = finalWpmCount
-    document.querySelector('#typingtest-result').style.display = 'block'
-    
+    document.querySelector('#typingtest-result #wpm-result').innerHTML = finalWpmCount;
+    document.querySelector('#typingtest-result #accuracy-result').innerHTML = accuracy;
+    document.querySelector('#typingtest-result').style.display = 'block';
+
     clearInterval(intervalId);
-    isTypingTestOver = true; 
+    isTypingTestOver = true;
     isTypingTestStart = false;
 }

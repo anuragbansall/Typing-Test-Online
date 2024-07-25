@@ -50,6 +50,10 @@ nav h2::after{
     display: none;
 }
 
+#typingtest-result h2{
+    margin-bottom: 0.5rem;
+}
+
 #random-text-container{
     background-color: #1D1D1D;
     width: 80%;
