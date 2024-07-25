@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: url(./assets/Gilroy-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy-Regular';
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.main{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #121212;
+}
+
+nav h2{
+    text-align: center;
+    color: #ffffff;
+    padding: 1rem;
+    font-size: 2rem;
+    font-style: italic;
+}
+
+nav h2::after{
+    content: '.online';
+    color: #3086E9;
+}
+
+/* #typingtest-container{
+    display: none;
+} */
+
+#typingtest-result{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    display: none;
+}
+
+#random-text-container{
+    background-color: #1D1D1D;
+    width: 80%;
+    margin: auto;
+    color: #C0C0BC;
+    padding: 2rem;
+    margin-top: 2rem;
+    word-spacing: 0.2rem;
+}
+
+#user-status-container{
+    display: flex;
+    width: 80%;
+    gap: 1rem;
+    margin: auto;
+    color: #C0C0BC;
+    margin-top: 1rem;
+}
+
+#user-status-container #user-word-input{
+    background-color: #1D1D1D;
+    min-height: 2rem;
+    background-color: #1D1D1D;
+    padding: 1rem 2rem;
+    width: 60%;
+}
+
+#user-controls{
+    display: flex;
+    width: 40%;
+    gap: 1rem;
+}
+
+#user-wpm{
+    flex-grow: 1;
+    background-color: #1D1D1D;
+    padding: 1rem;
+}
+
+#user-time{
+    flex-grow: 1;
+    background-color: #1D1D1D;
+    padding: 1rem;
+}
+
+#user-test-toggle-btn{
+    flex-grow: 1;
+    background-color: #1D1D1D;
+    padding: 1rem;
+}
+
+#user-test-toggle-btn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#key-press-caption{
+    color: #ffffff;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+    background-color: #1D1D1D;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    #typingtest-container {
+      display: none;
+    }
+  
+    .desktop-only-message {
+      display: initial;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      position: absolute;
+      top: 30%;
+      z-index: 9999;
+      color: #ffffff;
+    }
+  }
