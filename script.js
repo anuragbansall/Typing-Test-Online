@@ -19,8 +19,7 @@ function typingTestStart() {
     let cursor = 0;
     let randomIdx = Math.floor(Math.random() * paragraphsArray.length);
     let randomTextGenerate = paragraphsArray[randomIdx];
-    // let randomText = randomTextGenerate;
-    let randomText = 'hello world';
+    let randomText = randomTextGenerate;
 
     let startTimeMinute = 0;
     let startTimeSecond = 0;
