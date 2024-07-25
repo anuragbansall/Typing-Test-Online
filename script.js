@@ -92,11 +92,12 @@ userTestToggleBtn.addEventListener('click', function () {
 });
 
 function endTypingTest() {
+    let finalWpmCount = wpmCount
     document.querySelector('#typingtest-container').innerHTML = '';
-    document.querySelector('#typingtest-result #wpm-result').innerHTML = wpmCount
+    document.querySelector('#typingtest-result #wpm-result').innerHTML = finalWpmCount
     document.querySelector('#typingtest-result').style.display = 'block'
     
-    // clearInterval(intervalId);
-    // isTypingTestOver = true; 
-    // isTypingTestStart = false;
+    clearInterval(intervalId);
+    isTypingTestOver = true; 
+    isTypingTestStart = false;
 }
