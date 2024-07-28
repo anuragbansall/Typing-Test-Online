@@ -99,6 +99,14 @@ userTestToggleBtn.addEventListener('click', function () {
     }
 });
 
+function handleKeyPress(e) {
+        typingTestStart();
+        document.querySelector('#start-instruction').remove()
+        document.removeEventListener("keypress", handleKeyPress);
+}
+
+document.addEventListener("keypress", handleKeyPress);
+
 function endTypingTest() {
     let finalWpmCount = wpmCount;
     let accuracy = Math.floor((correctCharCount / (correctCharCount + incorrectCharCount)) * 100);
